@@ -1,0 +1,12 @@
+# roles/containerd/tasks/main.yml
+- name: Restart containerd
+  ansible.builtin.service:
+    name: containerd
+    state: restarted
+  notify: Restart containerd
+
+# roles/containerd/handlers/main.yml
+- name: Restart containerd
+  ansible.builtin.service:
+    name: containerd
+    state: restarted

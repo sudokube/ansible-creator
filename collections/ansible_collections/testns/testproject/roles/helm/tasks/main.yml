@@ -1,0 +1,4 @@
+---
+- name: Install Helm
+  ansible.builtin.apt:
+    name: helm

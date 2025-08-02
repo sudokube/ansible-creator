@@ -1,0 +1,19 @@
+---
+- name: Add Falco Helm repository
+  kubernetes.core.helm_repository:
+    repo_name: falcosecurity
+    repo_url: "https://falcosecurity.github.io/charts"
+
+- name: Install Falco via Helm
+  kubernetes.core.helm:
+    atomic: true
+    chart_ref: falcosecurity/falco
+    chart_version: "1.17.6"
+    create_namespace: true
+    release_name: falco
+    release_namespace: falco
+    set_values:
+      value: tty=true
+      value_type: string
+    update_repo_cache: true
+    wait: true

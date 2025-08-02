@@ -1,0 +1,16 @@
+---
+- name: Add Cilium Helm repository
+  kubernetes.core.helm_repository:
+    repo_name: cilium
+    repo_url: "https://helm.cilium.io/"
+
+- name: Install Cilium via Helm
+  kubernetes.core.helm:
+    atomic: true
+    chart_ref: cilium/cilium
+    chart_version: "1.17.6"
+    create_namespace: true
+    release_name: cilium
+    release_namespace: kube-system
+    update_repo_cache: true
+    wait: true

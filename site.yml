@@ -1,5 +1,9 @@
 ---
 - name: Example playbook
-  hosts: localhost
+  hosts: all
   roles:
-    - role: testns.testproject.run
+    - role: testns.testproject.sysctl
+    - role: testns.testproject.containerd
+    - role: testns.testproject.kubernetes
+    - role: testns.testproject.falco
+    - role: testns.testproject.cilium
